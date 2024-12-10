@@ -8,7 +8,7 @@
     "dev": "concurrently \"npm:start-backend\" \"npm:start-frontend\"",
     "start-backend": "node src/pages/mailer/Mailer.cjs",
     "start-frontend": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run build:css && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
