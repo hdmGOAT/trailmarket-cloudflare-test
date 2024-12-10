@@ -8,13 +8,13 @@
     "dev": "concurrently \"npm:start-backend\" \"npm:start-frontend\"",
     "start-backend": "node src/pages/mailer/Mailer.cjs",
     "start-frontend": "vite",
-    "build": "npm run build:css && tsc -b && vite build",
+    "postbuild": "tailwindcss build -i ./src/styles.css -o ./dist/assets/styles.css",
+    "build": "tsc -b && vite build && npm run postbuild",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "start": "npm run \"start-backend\"",
-    "build:css": "tailwindcss build ./src/styles.css -o ./dist/styles.css"
+    "start": "npm run \"start-backend\""
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
